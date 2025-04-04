@@ -1,0 +1,7 @@
+
+const HOST = 'http://localhost:8000';
+const ENVIRONMENT = 'TEST';
+const DEFAULT_LANGUAGE = 'es';
+const TIMEOUT_DURATION = 5000;
+
+export { HOST, ENVIRONMENT, DEFAULT_LANGUAGE, TIMEOUT_DURATION };

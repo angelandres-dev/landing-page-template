@@ -1,0 +1,17 @@
+{
+  "name": "landing-page-template",
+  "version": "1.0.0",
+  "description": "A landing page template to offer a service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@material/mwc-button": "^0.27.0",
+    "lit": "^3.2.1",
+    "uuid": "^11.1.0"
+  }
+}
