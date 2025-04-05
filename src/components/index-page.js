@@ -21,11 +21,6 @@ class IndexPage extends LitElement {
                 <hero-section></hero-section>
                 <hero-section></hero-section>
 
-                <hero-section></hero-section>
-                <hero-section></hero-section>
-                <hero-section></hero-section>
-                <hero-section></hero-section>
-
             </div>
         `;
     }
