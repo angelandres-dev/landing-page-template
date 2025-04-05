@@ -4,7 +4,16 @@ class HeroSection extends LitElement {
 
     static get properties() {
         return {
-            name: { type: String }
+            name: { type: String },
+            title: { type: String },
+            subtitle: { type: String },
+            path: { type: String },
+            path2: { type: String },
+            alt: { type: String },
+            number: { type: String },
+            button: { type: String },
+            whatsappNumber: { type: String },
+            whatsappMessage: { type: String }
         };
     }
 
@@ -18,20 +27,24 @@ class HeroSection extends LitElement {
         this.alt = 'Hero image';
         this.number = '+52 5561231792';
         this.button = 'Write me!';
+        this.whatsappNumber = '1234567890';
+        this.whatsappMessage = 'Hello, I would like to know more about your services.';
     }
 
     render() {
+        const whatsappUrl = `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(this.whatsappMessage)}`;
+
         return html`
             <div class="hero-section">
                 <img src="${this.path}" alt="${this.alt}">
                 <div class="content">
                     <h2>${this.title}</h2>
-                    <h3>${this.subtitle}</h3>
+                    <p>${this.subtitle}</p>
                     <div class="action">
-                        <button type="button" >
-                        ${this.button}
-                            <img src="${this.path2}" alt="WhatsApp icon" class="icon" >
-                        </button>
+                        <a class="button" href="${whatsappUrl}" target="_bank" >
+                            ${this.button}
+                            <img src="${this.path2}" alt="WhatsApp Icon" class="icon" >
+                        </a>
                     </div>
                 </div>
             </div>
@@ -40,11 +53,13 @@ class HeroSection extends LitElement {
 
     static get styles() {
         return css`
+            * {
+                font-family: 'Roboto', sans-serif;
+            }
             .hero-section {
                 display: flex;
                 justify-content: space-between;
                 padding: 2rem;
-                margin: 2rem;
             }
             .hero-section .content {
                 padding: 0 2rem;
@@ -52,41 +67,40 @@ class HeroSection extends LitElement {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                width: 50%;
+                text-align: right;
             }
             .hero-section img {
-                width: 30rem;
-                height: 30rem;
+                width: 50%;
             }
             .hero-section .action {
                 display: flex;
                 justify-content: right;
                 align-items: center;
             }
-
-            .hero-section button {
-                padding: 0.5rem 1rem;
-                width: 10rem;
-                height: 3rem;
+            .hero-section .button {
+                padding: 1rem 2rem;
                 background-color: #118dee;
                 color: #ffffff;
                 border: none;
                 border-radius: 0.5rem;
-                cursor: pointer;
                 font-weight: bold;
+                text-decoration: none;
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
-            .hero-section button:hover {
+            .hero-section .button:hover {
                 background-color: #0056b3;
             }
             .hero-section h2 {
                 margin: 0;
                 font-size: 2.5rem;
             }
-            .hero-section h3 {
+            .hero-section p {
                 font-size: 1.2rem;
-                line-height: 1.5rem;
+                line-height: 1.8rem;
+                font-weight: 500;
                 margin: 1rem 0;
                 color:#9e9e9e;
             }
@@ -95,6 +109,23 @@ class HeroSection extends LitElement {
                 height: 1.5rem;
                 margin: 0 0.5rem;
             }
+            @media (max-width: 767px) {
+                .hero-section {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .hero-section img {
+                    margin-bottom: 2rem;
+                }
+                .hero-section .content {
+                    width: 100%;
+                    text-align: center;
+                }
+                .hero-section .action {
+                    justify-content: center;
+                }
+            }
+
 
         `;
     }

@@ -1,6 +1,7 @@
 import { LitElement, html } from 'lit';
 
 import './hero-section.js';
+import './feature-section.js';
 
 class IndexPage extends LitElement {
 
@@ -17,10 +18,9 @@ class IndexPage extends LitElement {
 
     render() {
         return html`
-            <div id="index-page">
+            <div class="index-page">
                 <hero-section></hero-section>
-                <hero-section></hero-section>
-
+                <feature-section></feature-section>
             </div>
         `;
     }

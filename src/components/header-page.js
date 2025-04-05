@@ -25,12 +25,12 @@ class HeaderPage extends LitElement {
             { name: 'About', href: '#' },
             { name: 'Contact', href: '#' }
         ];
-        this.menu = true;
+        this.menu = false;
     }
 
     pushBars() {
         this.menu = !this.menu;
-        this.path2 = this.menu ? 'src/images/bars.svg' : 'src/images/x.svg';
+        this.path2 = this.menu ? 'src/images/x.svg' : 'src/images/bars.svg';
     }
 
     render() {
@@ -38,7 +38,7 @@ class HeaderPage extends LitElement {
             <div class="header-page">
                 <div class="logo">
                     <div class="bars">
-                        <img src="${this.path2}" alt="menu" class="icon" @click="${this.pushBars}" />
+                        <img src="${this.path2}" alt="Bars Icon" class="icon" @click="${this.pushBars}" />
                     </div>
                     <img src="${this.path}" alt="${this.alt}" class="imgLogo"/>
                     <h1>${this.title}</h1>
@@ -58,11 +58,14 @@ class HeaderPage extends LitElement {
 
     static get styles() {
         return css`
+            * {
+            font-family: 'Roboto', sans-serif;
+            }
             .header-page {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 2rem;
+                padding: 1rem 2rem;
             }
             .header-page .logo {
                 display: flex;
@@ -78,6 +81,7 @@ class HeaderPage extends LitElement {
             .header-page .navigation li {
                 display: inline;
                 margin: 0 1rem;
+                font-weight: bold;
             }
             .header-page .navigation a {
                 text-decoration: none;
@@ -115,7 +119,6 @@ class HeaderPage extends LitElement {
                     display: block;
                 }
                 .header-page .navigation {
-                    display: none;
                     background-color: #f8f8f8;
                     width: calc(100% - 2rem);
                     padding: 1rem;
@@ -124,9 +127,6 @@ class HeaderPage extends LitElement {
                 .header-page .navigation a {
                     color: #000;
                 }
-                .header-page .show {
-                    display: block;
-                }
                 .header-page .navigation h2 {
                     display: block;
                     margin: 1rem 0;
@@ -134,15 +134,11 @@ class HeaderPage extends LitElement {
                     padding: 0 1rem;
                 }
                 .header-page .navigation {
-                    transition: all 0.3s ease;
+                    display: none;
                 }
-                .header-page .bars img {
-                    transition: all 0.3s ease;
+                .header-page .show {
+                    display: block;
                 }
-                .header-page .bars img:hover {
-                    transform: scale(1.1);
-                }
-
             }
         `;
     }
