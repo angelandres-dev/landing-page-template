@@ -2,6 +2,7 @@ import { LitElement, html } from 'lit';
 
 import './hero-section.js';
 import './feature-section.js';
+import './content-section.js';
 
 class IndexPage extends LitElement {
 
@@ -21,6 +22,7 @@ class IndexPage extends LitElement {
             <div class="index-page">
                 <hero-section></hero-section>
                 <feature-section></feature-section>
+                <content-section></content-section>
             </div>
         `;
     }
