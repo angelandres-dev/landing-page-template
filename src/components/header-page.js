@@ -21,9 +21,9 @@ class HeaderPage extends LitElement {
         this.path2 = 'src/images/bars.svg';
         this.alt = 'logo landing page';
         this.navigationItems = [
-            { name: 'Home', href: '#' },
-            { name: 'About', href: '#' },
-            { name: 'Contact', href: '#' }
+            { name: 'Home', href: '/' },
+            { name: 'About', href: '/about' },
+            { name: 'Contact', href: '/contact' }
         ];
         this.menu = false;
     }
@@ -33,12 +33,21 @@ class HeaderPage extends LitElement {
         this.path2 = this.menu ? 'src/images/x.svg' : 'src/images/bars.svg';
     }
 
+    navigate(event, path) {
+        event.preventDefault();
+        this.dispatchEvent(new CustomEvent('navigate', {
+            detail: { path },
+            bubbles: true,
+            composed: true
+        }));
+    }
+
     render() {
         return html`
-            <div class="header-page">
+            <header class="header-page">
                 <div class="logo">
                     <div class="bars">
-                        <img src="${this.path2}" alt="Bars Icon" class="icon" @click="${this.pushBars}" />
+                        <img src="${this.path2}" alt="bars icons" class="icon" @click="${this.pushBars}" />
                     </div>
                     <img src="${this.path}" alt="${this.alt}" class="imgLogo"/>
                     <h1>${this.title}</h1>
@@ -48,11 +57,11 @@ class HeaderPage extends LitElement {
                     <h2>Menu</h2>
                     <ul>
                         ${this.navigationItems.map(item => html`
-                            <li><a href="${item.href}">${item.name}</a></li>
+                            <li><a href="${item.href}" @click="${(e) => this.navigate(e, item.href)}" >${item.name}</a></li>
                         `)}
                     </ul>
                 </nav>
-            </div>
+            </header>
         `;
     }
 

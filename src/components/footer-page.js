@@ -25,11 +25,33 @@ class FooterPage extends LitElement {
         this.alt = 'phone';
         this.alt2 = 'email';
         this.alt3 = 'address';
+        this.socialMediaLinks = [
+            {
+                path: './src/images/iconFacebookW.svg',
+                alt: 'Facebook',
+                link: 'https://www.facebook.com',
+            },
+            {
+                path: './src/images/iconTwitterW.svg',
+                alt: 'Twitter',
+                link: 'https://www.twitter.com',
+            },
+            {
+                path: './src/images/iconInstagramW.svg',
+                alt: 'Instagram',
+                link: 'https://www.instagram.com',
+            },
+            {
+                path: './src/images/iconYoutubeW.svg',
+                alt: 'Youtube',
+                link: 'https://www.youtube.com',
+            } 
+        ];
     }
 
     render() {
         return html`
-            <div class="footer-page">
+            <footer class="footer-page">
                 <div class="copyright">
                     <p>${this.copyright}</p>
                 </div>
@@ -47,7 +69,22 @@ class FooterPage extends LitElement {
                         <p>${this.address}</p>
                     </div>
                 </div>
-            </div>
+                <div class="social-media">
+                    ${this.socialMediaLinks.map(link => html`
+                        <a href="${link.link}" target="_blank">
+                            <img src="${link.path}" alt="${link.alt}">
+                        </a>
+                    `)}
+                </div>
+                <div class="legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="credits">
+                    <p>Designed by Your Name</p>
+                    <a href="#"> GitHub </a>
+                </div>
+            </footer>
         `;
     }
 
@@ -64,6 +101,7 @@ class FooterPage extends LitElement {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                flex-wrap: wrap;
             }
             .footer-page .copyright {
                 font-weight: bold;
@@ -82,6 +120,42 @@ class FooterPage extends LitElement {
                 height: 20px;
                 margin-right: 0.5rem;
             }
+            .footer-page .social-media {
+                display: flex;
+                align-items: center;
+                margin: 0 1rem;
+            }
+            .footer-page .social-media a {
+                margin: 0 1rem;
+            }
+            .footer-page .social-media img {
+                width: 2rem;
+                height: 2rem;
+            }
+            .footer-page .legal {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 1rem;
+            }
+            .footer-page .legal a {
+                color: #ffffff;
+                text-decoration: none;
+            }
+            .footer-page .legal a:hover {
+                text-decoration: underline;
+            }
+            .footer-page .credits {
+                text-align: center;
+                margin: 0 1rem;
+            }
+            .footer-page .credits a {
+                color: #ffffff;
+                text-decoration: none;
+            }
+            .footer-page .credits a:hover {
+                text-decoration: underline;
+            }
             @media (max-width: 767px) {
                 .footer-page {
                     flex-direction: column;
@@ -90,6 +164,15 @@ class FooterPage extends LitElement {
                 .footer-page .contact-info {
                     flex-direction: column;
                     align-items: flex-start;
+                }
+                .footer-page .social-media {
+                    margin-top: 1rem;
+                }
+                .footer-page .legal {
+                    margin-top: 1rem;
+                }
+                .footer-page .credits {
+                    margin-top: 1rem;
                 }
             }
         `;

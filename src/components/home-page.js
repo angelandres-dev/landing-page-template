@@ -4,7 +4,7 @@ import './hero-section.js';
 import './feature-section.js';
 import './content-section.js';
 
-class IndexPage extends LitElement {
+class HomePage extends LitElement {
 
     static get properties() {
         return {
@@ -14,12 +14,12 @@ class IndexPage extends LitElement {
 
     constructor() {
         super();
-        this.name = 'index-page';
+        this.name = 'home-page';
     }
 
     render() {
         return html`
-            <div class="index-page">
+            <div class="home-page">
                 <hero-section></hero-section>
                 <feature-section></feature-section>
                 <content-section></content-section>
@@ -28,4 +28,4 @@ class IndexPage extends LitElement {
     }
 }
 
-customElements.define('index-page', IndexPage);
+customElements.define('home-page', HomePage);
