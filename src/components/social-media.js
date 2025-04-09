@@ -4,7 +4,10 @@ class SocialMedia extends LitElement {
 
     static get properties() {
         return {
-            name: { type: String }
+            name: { type: String },
+            title: { type: String },
+            text: { type: String },
+            socialMediaLinks: { type: Array }
         };
     }
 
@@ -12,6 +15,7 @@ class SocialMedia extends LitElement {
         super();
         this.name = 'contact-page';
         this.title = 'Contact Us';
+        this.text = 'Siguenos';
         this.socialMediaLinks = [
             {
                 path: './src/images/facebook.png',
@@ -19,7 +23,7 @@ class SocialMedia extends LitElement {
                 link: 'https://www.facebook.com',
                 icon: './src/images/iconFacebook.svg'
             },
-            {
+{
                 path: './src/images/twitter.png',
                 alt: 'Twitter',
                 link: 'https://www.x.com',
@@ -43,7 +47,7 @@ class SocialMedia extends LitElement {
     render() {
         return html`
             <div class="social-media">
-                <h2>Connect with us on oficial social media</h2>
+                <h2>${this.title}</h2>
                 <div class="social-cards">
                     ${this.socialMediaLinks.map(item => html`
                         <div class="card">
@@ -53,8 +57,8 @@ class SocialMedia extends LitElement {
                             </div>
                             <div class="content-card">
                                 <img src="${item.path}" alt="${item.alt}">
-                                <p>Follow us</p>
-                                <a href="${item.link}" target="_blank">Go to ${item.alt}</a>
+                                <p>${this.text}</p>
+                                <a href="${item.link}" target="_blank">${item.alt}</a>
                             </div>
                     `)}
                 </div>
@@ -64,6 +68,10 @@ class SocialMedia extends LitElement {
 
     static get styles() {
         return css`
+            * {
+                font-family: 'Roboto', sans-serif;
+                font-size: inherit;
+             }
             .social-media {
                 padding: 2rem;
                 text-align: center;
@@ -75,14 +83,20 @@ class SocialMedia extends LitElement {
             }
             .card {
                 border-radius: 1rem;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 padding: 1rem 2rem;
-                width: 12rem;
+                width: 15rem;
                 margin: 0 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             .header-card {
                 display: flex;
                 align-items: center;
+            }
+            .card:hover {
+                transform: scale(1.05);
+                transition: transform 0.2s;
             }
             .header-card img {
                 width: 2.5rem;
@@ -97,13 +111,12 @@ class SocialMedia extends LitElement {
             }
             .content-card p {
                 margin: 0.5rem 0;
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 color: rgb(158, 158, 158);
             }
             .content-card a {
                 text-decoration: none;
                 color: #007BFF;
-                font-weight: bold;
             }
             .content-card a:hover {
                 text-decoration: underline;

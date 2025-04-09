@@ -68,13 +68,17 @@ class HeaderPage extends LitElement {
     static get styles() {
         return css`
             * {
-            font-family: 'Roboto', sans-serif;
-            }
+                font-family: 'Roboto', sans-serif;
+                font-size: inherit;
+             }
             .header-page {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 padding: 1rem 2rem;
+            }
+            .header-page h1 {
+                font-size: 2rem;
             }
             .header-page .logo {
                 display: flex;
@@ -139,7 +143,7 @@ class HeaderPage extends LitElement {
                 .header-page .navigation h2 {
                     display: block;
                     margin: 1rem 0;
-                    font-size: 1.5rem;
+                    font-size: 1.3rem;
                     padding: 0 1rem;
                 }
                 .header-page .navigation {

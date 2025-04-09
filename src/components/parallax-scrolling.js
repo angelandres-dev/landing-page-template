@@ -29,11 +29,15 @@ class ParallaxScrolling extends LitElement {
 
     static get styles() {
         return css`
+            * {
+                font-family: 'Roboto', sans-serif;
+                font-size: inherit;
+             }
             .parallax-scrolling {
                 width: 100%;
-                height: 33vh;
+                height: 65vh;
                 background-attachment: fixed;
-                background-position: center;
+                background-position: top;
                 background-repeat: no-repeat;
                 background-size: cover;
             }

@@ -5,6 +5,8 @@ import './components/home-page.js';
 import './components/footer-page.js';
 import './components/about-page.js';
 import './components/contact-page.js';
+import './components/privacy-page.js';
+import './components/terms-page.js';
 
 class IndexPage extends LitElement {
 
@@ -41,8 +43,10 @@ class IndexPage extends LitElement {
                 ${this.route === '/' ? html`<home-page></home-page>` : nothing}
                 ${this.route === '/about' ? html`<about-page></about-page>` : nothing}
                 ${this.route === '/contact' ? html`<contact-page></contact-page>` : nothing}
+                ${this.route === '/privacy' ? html`<privacy-page></privacy-page>` : nothing}
+                ${this.route === '/terms' ? html`<terms-page></terms-page>` : nothing}
             </main>
-            <footer-page></footer-page>
+            <footer-page @navigate="${this.navigate}"></footer-page>
         `;
     }
 }

@@ -29,10 +29,12 @@ class AboutUs extends LitElement {
     perfilHTML() {
         return html`
             <section class="perfil">
-                <h3>Perfil</h3>
-                <p>${this.perfil}</p>
                 <div class="images">
                     <img src="${this.path}" alt="Valores"/>
+                </div>
+                <div class="text">
+                    <h3>Perfil</h3>
+                    <p>${this.perfil}</p>
                 </div>
             </section>
         `;
@@ -98,6 +100,7 @@ class AboutUs extends LitElement {
         return css`
             * {
                 font-family: 'Roboto', sans-serif;
+                font-size: inherit;
             }
             .about-us section {
                 padding: 2rem;
@@ -114,36 +117,37 @@ class AboutUs extends LitElement {
             }
             .about-us p {
                 line-height: 1.5;
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 margin:0;
                 color: rgb(158, 158, 158);
             }
             .about-us img {
-                width: 35%;
+                width: 100%;
                 height: auto;
             }
             .about-us .images {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                width: 40%;
             }
             .about-us .text {
-                width: 50%;
-                padding: 2rem;
+                width: 60%;
             }
-            .about-us .equipo {
+            .about-us .equipo, .about-us .perfil {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
             }
             @media (max-width: 767px) {
-                .about-us .equipo {
+                .about-us .equipo, .about-us .perfil {
                     flex-direction: column;
                     align-items: center;
                 }
                 .about-us img {
                     width: 100%;
                     height: auto;
+                    margin: 1rem;
                 }
                 .about-us .text {
                     width: 100%;

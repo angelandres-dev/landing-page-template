@@ -49,6 +49,15 @@ class FooterPage extends LitElement {
         ];
     }
 
+    navigate(event, path) {
+        event.preventDefault();
+        this.dispatchEvent(new CustomEvent('navigate', {
+            detail: { path },
+            bubbles: true,
+            composed: true
+        }));
+    }
+
     render() {
         return html`
             <footer class="footer-page">
@@ -77,12 +86,12 @@ class FooterPage extends LitElement {
                     `)}
                 </div>
                 <div class="legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="/privacy" @click="${(e) => this.navigate(e, "/privacy")}" >Políticas de privacidad</a>
+                    <a href="/terms" @click="${(e) => this.navigate(e, "/terms")}" >Aviso legal</a>
                 </div>
                 <div class="credits">
-                    <p>Designed by Your Name</p>
-                    <a href="#"> GitHub </a>
+                    <p>Este sitio web fue creado por </p>
+                    <a href="https://angelandres.dev/" target="_blank"> Angel Andrés </a>
                 </div>
             </footer>
         `;
@@ -92,8 +101,8 @@ class FooterPage extends LitElement {
         return css`
             * {
                 font-family: 'Roboto', sans-serif;
-                font-size: 1rem;
-            }
+                font-size: inherit;
+             }
             .footer-page {
                 background-color: #333333;
                 color: #ffffff;
@@ -102,9 +111,6 @@ class FooterPage extends LitElement {
                 justify-content: space-between;
                 align-items: center;
                 flex-wrap: wrap;
-            }
-            .footer-page .copyright {
-                font-weight: bold;
             }
             .footer-page .contact-info {
                 display: flex;
@@ -136,11 +142,11 @@ class FooterPage extends LitElement {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin: 0 1rem;
             }
             .footer-page .legal a {
                 color: #ffffff;
                 text-decoration: none;
+                margin: 0 1rem;
             }
             .footer-page .legal a:hover {
                 text-decoration: underline;
@@ -148,10 +154,13 @@ class FooterPage extends LitElement {
             .footer-page .credits {
                 text-align: center;
                 margin: 0 1rem;
+                display: flex;
+                align-items: center;
             }
             .footer-page .credits a {
                 color: #ffffff;
                 text-decoration: none;
+                margin-left: 0.5rem;
             }
             .footer-page .credits a:hover {
                 text-decoration: underline;

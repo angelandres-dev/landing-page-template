@@ -10,7 +10,6 @@ class HeroSection extends LitElement {
             path: { type: String },
             path2: { type: String },
             alt: { type: String },
-            number: { type: String },
             button: { type: String },
             whatsappNumber: { type: String },
             whatsappMessage: { type: String }
@@ -25,7 +24,7 @@ class HeroSection extends LitElement {
         this.path = './src/images/hero.png';
         this.path2 = './src/images/whatsapp.svg';
         this.alt = 'Hero image';
-        this.number = '+52 5561231792';
+        this.number = '+52 1111111111';
         this.button = 'Write me!';
         this.whatsappNumber = '1234567890';
         this.whatsappMessage = 'Hello, I would like to know more about your services.';
@@ -55,7 +54,8 @@ class HeroSection extends LitElement {
         return css`
             * {
                 font-family: 'Roboto', sans-serif;
-            }
+                font-size: inherit;
+             }
             .hero-section {
                 display: flex;
                 justify-content: space-between;
@@ -95,10 +95,10 @@ class HeroSection extends LitElement {
             }
             .hero-section h2 {
                 margin: 0;
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             .hero-section p {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 line-height: 1.8rem;
                 font-weight: 500;
                 margin: 1rem 0;

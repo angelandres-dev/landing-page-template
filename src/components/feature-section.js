@@ -50,24 +50,29 @@ class FeatureSection extends LitElement {
     static get styles() {
         return css`
             * {
-            font-family: 'Roboto', sans-serif;
+                font-family: 'Roboto', sans-serif;
+                font-size: inherit;
             }
             .feature-section {
                 display: flex;
                 justify-content: space-around;
-                align-items: center;
+                align-items: flex-start;
                 padding: 2rem;
+            }
+            .feature-section .feature:hover {
+                transform: scale(1.05);
+                transition: transform 0.2s;
             }
             .feature-section .feature {
                 max-width: 15rem;
                 text-align: center;
             }
             .feature-section .feature img {
-                width: 20%;
+                width: 100%;
                 height: auto;
             }
             .feature-section .feature p {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 line-height: 1.8rem;
                 font-weight: 500;
                 color: #9e9e9e;
